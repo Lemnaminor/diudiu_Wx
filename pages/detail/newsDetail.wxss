@@ -1,0 +1,17 @@
+/* pages/detail/newsDetail.wxss */
+page {
+  background: #fff;
+  padding-bottom: 50rpx;
+}
+.msgDetail-content {
+  line-height: 2;
+  color: #666;
+  padding: 30rpx 0;
+  font-size: 30rpx;
+}
+.msgDetail-content image {
+  width: 100%;
+}
+.weui-media-box__title_in-text {
+  font-size: 36rpx;
+}

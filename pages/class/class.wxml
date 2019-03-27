@@ -1,0 +1,13 @@
+<!--pages/class/class.wxml-->
+<scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="cu-item {{index==TabCur?'text-skyblue cur':''}}" wx:for="{{className}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{item.name}}
+  </view>
+</scroll-view>
+
+<view class='class-box'>
+  <import src="../list/list.wxml" />
+  <block wx:for="{{listInfo}}" wx:key="{{listInfo}}">
+    <template is="list" data="{{...item}}" />
+  </block>
+</view>

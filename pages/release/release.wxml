@@ -1,0 +1,100 @@
+<!---->
+
+<view class='release-box1'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <view class="textarea-wrp">
+      <textarea placeholder="{{placeholder}}" />
+    </view>
+
+    <view class='releasePic mb-15 lineB'>
+
+      <view class="weui-uploader">
+
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+
+            <block wx:for="{{files}}" wx:key="*this">
+              <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>
+
+          </view>
+          <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+          </view>
+        </view>
+
+        <view class="weui-uploader__hd">
+          <view class="weui-uploader__title">图片上传</view>
+          <view class="weui-uploader__info">{{files.length}}/9</view>
+        </view>
+
+      </view>
+
+    </view>
+
+    <view class='releaseList-box lineT'>
+
+      <view class='releaseList lineB'>
+        <picker bindchange="bindPickerChange" value="{{classIndex}}" range="{{classArray}}">
+          <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="../../images/release.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+            </view>
+            <view class="weui-cell__bd">发布类别</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+              <input placeholder='请选择发布类别' disabled='disabled' value='{{classArray[classIndex]}}'></input>
+            </view>
+          </view>
+        </picker>
+      </view>
+
+      <view class='releaseList lineB'>
+        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="../../images/address1.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">发布地址</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access mapAddress" bindtap='onChangeAddress'>
+            <input disabled='disabled' value='{{address}}'></input>
+          </view>
+        </view>
+      </view>
+
+      <view class='releaseList lineB'>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+
+          <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="../../images/type.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+            </view>
+            <view class="weui-cell__bd">选择分类</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+              <input placeholder='请选择分类' disabled='disabled' value='{{multiVal}}'></input>
+            </view>
+          </view>
+        </picker>
+      </view>
+
+      <view class='releaseList lineB'>
+        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="../../images/phone.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">联系电话</view>
+          <view class="weui-cell__ft">
+            <input placeholder='请输入电话...'></input>
+          </view>
+        </navigator>
+      </view>
+
+      <view class='weui-cell2'>
+        <button class="weui-btn release-btn" type="primary">立即发布</button>
+      </view>
+
+    </view>
+
+  </form>
+</view>

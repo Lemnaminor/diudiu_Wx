@@ -1,0 +1,79 @@
+@import "weui.wxss";
+@import "colorui.wxss";
+@import "icon.wxss";
+@import "pages/searchBar/searchBar.wxss";
+@import "pages/footer/footer.wxss";
+@import "pages/list/list.wxss";
+@import "pages/comment/comment.wxss";
+
+/**app.wxss**/
+page {
+  background-color: #eee;
+}
+
+/**text-color**/
+.text-333 {
+  color: #333;
+}
+.text-666 {
+  color: #666;
+}
+.text-999 {
+  color: #999;
+}
+
+/**margin**/
+.mb-15 {
+  margin-bottom: 15rpx;
+}
+
+/**line**/
+.lineT {
+  border-top: 2rpx solid #e6e6e6;
+}
+.lineB {
+  border-bottom: 2rpx solid #e6e6e6;
+}
+.lineTB {
+  border-top: 2rpx solid #e6e6e6;
+  border-bottom: 2rpx solid #e6e6e6;
+}
+
+/**clearfix**/
+.clearfix {
+  height: 1%;
+}
+.clearfix:after {
+  clear: both;
+  content: '\20';
+  display: block;
+  height: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+/**weui-cell2**/
+.weui-cell2 {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding:10px 15px;
+}
+
+/**newsIcon**/
+.newsIcon {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin: -7rpx 10rpx 0 0;
+}
+
+/**text-skyblue**/
+.text-skyblue {
+  color: #23beff;
+}
+.bg-skyblue {
+  color: #fff;
+  background: #23beff;
+}

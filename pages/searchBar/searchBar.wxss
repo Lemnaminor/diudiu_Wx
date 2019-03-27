@@ -1,0 +1,21 @@
+/* pages/searchBar/searchBar.wxss */
+.searchBar-box {
+  position: relative;
+  z-index: 99;
+  background: #fff;
+}
+.weui-search-bar {
+  background: #fff;
+}
+.weui-search-bar__label {
+  background: #f8f8f8;
+}
+.weui-search-bar__cancel-btn {
+  font-size: 30rpx;
+}
+.weui-cells {
+  margin-top: 0;
+}
+.weui-search-bar__cancel-btn {
+  color: #23beff;
+}

@@ -1,0 +1,74 @@
+{
+  "pages": [
+        "pages/news/news",
+    "pages/index/index",
+    "pages/leaveMsg/leaveMsg",
+    "pages/leaveMsg/leaveMsgUser",
+    "pages/comment/comment",
+    "pages/user/user",
+    "pages/sponsor/sponsor",
+    "pages/copyright/copyright",
+    "pages/reply/reply",
+    "pages/swiper/colorSwiper",
+    "pages/class/class",
+
+    "pages/about/about",
+    "pages/release/release",
+    "pages/detail/newsDetail",
+    "pages/searchBar/searchBar",
+    "pages/searchBar/colorSearchBar",
+    "pages/map/map",
+    "pages/list/list",
+    "pages/list/newsList",
+    "pages/list/userNavList",
+    "pages/footer/footer",
+    "pages/toast/toast",
+    "pages/bar/bar",
+    "pages/BF/BF",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#23beff",
+    "navigationBarTitleText": "丢丢-失物招领",
+    "backgroundColor": "#eeeeee"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#23beff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/homeB.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/classB.png",
+        "iconPath": "images/class.png",
+        "pagePath": "pages/class/class",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "images/releaseB.png",
+        "iconPath": "images/release.png",
+        "pagePath": "pages/release/release",
+        "text": "发布"
+      },
+      {
+        "selectedIconPath": "images/newsB.png",
+        "iconPath": "images/news.png",
+        "pagePath": "pages/news/news",
+        "text": "新闻"
+      },
+      {
+        "selectedIconPath": "images/userB.png",
+        "iconPath": "images/user.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  }
+}

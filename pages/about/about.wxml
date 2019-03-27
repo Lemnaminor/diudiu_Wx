@@ -1,0 +1,20 @@
+<!--pages/about/about.wxml-->
+<view class='msgDetail-box'>
+  <view class="weui-media-box weui-media-box_text">
+    <view class="weui-media-box__title_in-text">丢丢网-失物招领网站</view>
+
+
+    <view class='msgDetail-content'>
+      <text>本网站是由OneDay一天工作室开发的旗下一个公益项目。
+      本网站的主要功能是发布及寻回丢失的物品。网站是全公益项目，不收取任何费用，初衷是借助互联网发动人们的力量，为人们寻回丢失的物品等。
+      如果本网站对你有所帮助，以及您愿意为此项目贡献一点力量，请在二维码捐赠页面赞助我们，您的一点支持将是我们前进的动力。
+      </text>
+    </view>
+
+  </view>
+
+  <!--footer-->
+  <import src="../footer/footer.wxml" />
+  <template is="footer" />
+
+</view>

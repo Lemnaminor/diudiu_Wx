@@ -1,0 +1,15 @@
+<!--pages/leaveMsg/leaveMsg.wxml-->
+
+<view class='class-box' bindtap='bodyClick'>
+  <import src="../list/list.wxml" />
+  <block wx:for="{{listInfo}}" wx:key="{{listInfo}}">
+    <template is="list" data="{{...item}}" />
+  </block>
+</view>
+
+<import src="../comment/comment.wxml" />
+<view class='comment-bottom' wx:if="{{isShow}}" catchtap='showMsg,zanChange'>
+  <template is="comment" data="{{...item}}" />
+</view>
+
+  <button wx:if="{{showMsgBtn}}" catchtap='showMsg' class='cu-btn round bg-gradual-blue shadow fr comment-btn'>留言</button>

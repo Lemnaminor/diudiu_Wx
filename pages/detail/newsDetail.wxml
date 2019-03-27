@@ -1,0 +1,29 @@
+<!--pages/detail/newsDetail.wxml-->
+<view class='msgDetail-box'>
+  <view class="weui-media-box weui-media-box_text">
+    <view class="weui-media-box__title_in-text">锤子科技发布三面无边框全面屏手机坚果 3 售价 1299 元起</view>
+    <view class="weui-media-box__info">
+      <view class="weui-media-box__info__meta">
+        <image class='newsIcon' src='../../images/time.png'></image>
+        时间：2019-02-26
+      </view>
+      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+        <image class='newsIcon' src='../../images/eye.png'></image>
+        浏览量：6515
+      </view>
+    </view>
+
+    <view class='msgDetail-content'>
+      <text>【 4 月 9 日 北京】锤子科技 2018 春季新品发布会在北京工业大学奥林匹克体育馆举行，正式发布了 2018 年第一款手机——坚果 3，这是“漂亮得不像实力派”坚果手机系列的第四款产品，在设计美学、做工与结构、功耗与拍照等方面实现再一次突破，真正为年轻人打造伴随成长的诚意产品，售价 1299 元起。同时，畅呼吸智能空气净化器超级除甲醛版也正式发布，甲醛 CADR 值高达 400+ m³/h，售价 2999 元。
+    </text>
+      <image src='../../images/banner1.png'></image>
+      <text>坚果 3 采用三面无边框全面屏设计，屏占比达到 81%，18:9 全高清屏幕配以 5.99 英寸屏幕尺寸，从息屏到亮屏瞬间带来强烈的视觉冲击；机身正面采用隐藏式听筒、隐藏式光线传感器及超声波距离传感器，将高端机的设计及加工技术运用到了千元机领域。坚果 3 拥有千元机中少有的金属中框+双面玻璃结构，运用 CNC 钻石切割技术打造出精致的侧边金线；双面玻璃使用顶级油墨上色工艺，色彩通透自然且抗磨损强度极高。部分金属器件采用 PVD 上色技术。整机视觉效果拔群，颇具高端机的气质。</text>
+    </view>
+
+  </view>
+
+  <!--footer-->
+  <import src="../footer/footer.wxml" />
+  <template is="footer" />
+
+</view>

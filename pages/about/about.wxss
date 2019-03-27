@@ -1,0 +1,6 @@
+/* pages/about/about.wxss */
+@import "/pages/detail/newsDetail.wxss";
+
+.weui-media-box__title_in-text {
+  font-size: 32rpx;
+}

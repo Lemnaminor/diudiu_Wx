@@ -1,0 +1,86 @@
+<template name="list">
+  
+  <view class='contList clearfix mb-15 lineTB'>
+
+    <view class='list-header'>
+      <view class='userHeader'>
+        <image src='{{userHeader}}' mode='aspectFill'></image>
+      </view>
+      <view class='list-cont1'>
+        <view class='userName'>{{userName}}</view>
+        <view class='userTime'>{{userTime}}</view>
+      </view>
+      <view class='contact-btn'>联系Ta</view>
+    </view>
+
+    <view class='list-content'>
+      <view class='userContent'>{{userContent}}</view>
+      <view class='userPic clearfix'>
+        <view wx:for="{{listImg}}" wx:key="{{listImg}}" wx:for-item="image" class="previewimg">
+          <image src="{{image}}" data-id="{{userID}}" data-src="{{image}}" bindtap="previewImage" mode='aspectFill'></image>
+        </view>
+      </view>
+      <view class='userAddress'>
+        <image src='../../images/address2.png'></image>
+        <text>{{userAddress}}</text>
+      </view>
+    </view>
+
+    <view class='list-share lineT'>
+      <view class='weui-flex'>
+        <view class='weui-flex__item'>
+          <image src='../../images/share.png'></image>
+          <text>{{shareNum}}</text>
+        </view>
+        <view class='weui-flex__item  weui-media-box__info__meta_extra' catchtap='toLeaveMsg'>
+          <image src='../../images/message.png'></image>
+          <text>{{messageNum}}</text>
+        </view>
+        <view class='weui-flex__item  weui-media-box__info__meta_extra'>
+          <image src='../../images/zan.png'></image>
+          <text>{{zanNum}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='list-leave'>
+      <view class="cu-list menu menu-avatar comment solids-top">
+        <view class="cu-item" wx:for="{{leaveList}}" wx:key="{{leaveList}}" wx:for-index="idx">
+          <view class="cu-avatar round" style="background-image:url({{item.leaveUserImg}});"></view>
+          <view class='content'>
+            <view class='text-333'>{{item.leaveUser}}</view>
+            <view class='text-666 text-content text-df'>
+              {{item.leaveInfo}}
+            </view>
+            <view class='bg-gray padding-xs radius margin-top-sm  text-sm'>
+              <!-- <view class="flex" wx:for="{{item.leaveReplay}}" wx:key="{{item.leaveReplay}}">
+                <view>我：</view>
+                <view class='flex-sub'>{{item.info}}</view>
+              </view> -->
+               <view class="flex">
+                <view catchtap='toMsgUser'>共{{item.commentNum}}条回复 ></view>
+              </view>
+            </view>
+            <view class='margin-top-sm flex justify-between'>
+              <view class='text-gray text-df'>{{item.floor}} {{item.leaveTime}}</view>
+              <view>
+                <view class='list-img' catchtap='toMsgUser'>
+                  <image src='../../images/message.png'></image>
+                </view>
+                <view class='list-img'>
+                  <view class='zan-box' catchtap='zanChange'>
+                    <image wx:if="{{item.isZan == false}}" src='../../images/zan.png'></image>
+                    <image wx:else src='../../images/zanB.png'></image>
+                  </view>
+                  <text class='text-gray text-df margin-left-xs'>{{item.zanNum}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</template>

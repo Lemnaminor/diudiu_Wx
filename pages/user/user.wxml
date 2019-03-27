@@ -1,0 +1,22 @@
+<!--user.wxml-->
+<!--用户信息-->
+<view class="user-box1">
+  <block wx:for="{{userList}}" wx:key="userList">
+    <view>
+      <view class="header-box">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{item.userHeaderUrl}}" mode="cover"></image>
+      </view>
+    </view>
+    <text class="userinfo-nickname">{{item.userName}}</text>
+  </block>
+</view>
+
+<!--功能列表-->
+<view class="weui-panel__bd">
+
+  <import src="../../pages/list/userNavList"/>
+  <block wx:for="{{userNavList}}" wx:key="{{userNavList}}">
+    <template is="userNavList" data="{{...item}}"/>
+  </block>
+
+</view>

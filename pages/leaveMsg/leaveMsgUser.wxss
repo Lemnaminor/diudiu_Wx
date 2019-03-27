@@ -1,0 +1,17 @@
+/* pages/leaveMsg/leaveMsgUser.wxss */
+.mb-15 {
+  margin-bottom: 0;
+}
+
+.bg-gray {
+  display: none;
+}
+.userAddress {
+  display: none;
+}
+.list-img:first-child {
+  display: none!important;
+}
+.comment {
+  background: #eee;
+}

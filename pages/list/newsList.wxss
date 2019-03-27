@@ -1,0 +1,36 @@
+/* pages/list/newsList.wxss */
+/**新闻列表**/
+page {
+  padding-bottom: 50rpx;
+}
+.newsList-box {
+  display: block;
+  width: 94%;
+  background: #fff;
+  box-sizing: border-box;
+  border: 3rpx solid #ddd;
+  border-radius: 12rpx;
+  box-shadow: -1rpx 2rpx 5rpx 1rpx #eee;
+  margin: 3% 3% 0;
+  padding: 12rpx;
+}
+.newsImg {
+  display: block;
+  width: 100%;
+  height: 240rpx;
+}
+
+.weui-media-box {
+  padding: 15rpx;
+  text-align: justify;
+}
+.weui-media-box__title_in-text {
+  font-size: 32rpx;
+}
+.weui-media-box__desc {
+  line-height: 1.5;
+  font-size: 28rpx;
+}
+.weui-media-box::before {
+  display: none;
+}

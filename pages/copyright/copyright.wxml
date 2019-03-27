@@ -1,0 +1,19 @@
+<!--pages/copyright/copyright.wxml-->
+<view class='msgDetail-box'>
+  <view class="weui-media-box weui-media-box_text">
+    <view class="weui-media-box__title_in-text">版权说明</view>
+
+
+    <view class='msgDetail-content'>
+      <text>本网站的解释权归丢丢网所有。
+      任何抄袭、盗用本网站信息的，我们将依法追究其法律责任。
+      </text>
+    </view>
+
+  </view>
+
+  <!--footer-->
+  <import src="../footer/footer.wxml" />
+  <template is="footer" />
+
+</view>

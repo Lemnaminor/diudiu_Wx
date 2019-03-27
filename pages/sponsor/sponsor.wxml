@@ -1,0 +1,14 @@
+<!--pages/sponsor/sponsor.wxml-->
+<view class='sponsor-box'>
+
+
+  <view class='pay wx-pay'>
+    <view wx:for="{{listImg}}" wx:key="{{listImg}}" wx:for-item="image" class="previewimg">
+      <image src="{{image}}" data-id="{{userID}}" data-src="{{image}}" bindtap="previewImage" mode='aspectFill'></image>
+    </view>
+  </view>
+
+
+  <text class='p1'>您的一点支持将是我们前进的动力！</text>
+
+</view>

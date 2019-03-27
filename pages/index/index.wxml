@@ -1,0 +1,91 @@
+<!--index.wxml-->
+
+<!--搜索框-->
+<import src="../searchBar/colorSearchBar" />
+<view bindtap=''>
+  <template is="colorSearchBar" data="{{...colorSearchBar}}" />
+</view>
+
+<!--广告位-->
+<swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="imgUrls">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<!--滚动提示语-->
+<view class='msg-box mb-15 lineB'>
+  <view class='noticeImg'>
+    <image src='../../images/notice1.png'></image>
+  </view>
+  <swiper indicator-dots="{{indicatorDotsMsg}}" autoplay="{{autoplay}}" circular="{{circularMsg}}" vertical="{{verticalMsg}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{msgList}}" wx:key="msgList">
+      <swiper-item>
+        <text class='msglist'>{{item}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+
+<!--分类导航栏-->
+<view class="navbar-box mb-15 lineTB">
+  <view class="weui-flex">
+    <block wx:for="{{navbar}}" wx:key="{{navbar}}">
+      <view class="weui-flex__item">
+        <view bindtap='goShop' class="navbar-list1" hover-class="navigator-hover">
+          <view>
+            <image src="{{item.imgUrl}}"></image>
+          </view>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!--内容筛选-->
+<view class="index-box1 lineTB">
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+        <!--内容列表-->
+        <view class='list-box'>
+
+          <import src="../list/list.wxml" />
+          <block wx:for="{{listInfo}}" wx:key="{{listInfo}}">
+            <template is="list" data="{{...item}}" />
+          </block>
+
+        </view>
+
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+        <!--内容列表-->
+        <view class='list-box'>
+
+          <import src="../list/list.wxml" />
+          <block wx:for="{{listInfo2}}" wx:key="{{listInfo2}}">
+            <template is="list" data="{{...item}}" />
+          </block>
+
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

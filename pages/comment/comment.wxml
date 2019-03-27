@@ -1,0 +1,11 @@
+<!--pages/comment/comment.wxml-->
+<template name="comment">
+<view class='comment-box lineT'>
+  <view class='title'>
+    <image src='../../images/comment.png'></image>
+    <text class='text-skyblue'>发表评论</text>
+  </view>
+  <textarea placeholder='请填写您的评论^-^...' value='{{commentCont}}'></textarea>
+  <button bindtap='commentSubmit' class='cu-btn round bg-gradual-blue shadow fr'>提交</button>
+</view>
+</template>

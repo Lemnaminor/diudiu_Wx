@@ -1,0 +1,17 @@
+/* pages/list/userNavList.wxss */
+.weui-panel__bd {
+  background: #fff;
+  font-size: 30rpx;
+}
+.weui-cell__hd image {
+  display: inline-block;
+  vertical-align: middle;
+  margin: -7rpx 15rpx 0 0!important;
+}
+.weui-cell {
+  border-bottom: 3rpx solid #ddd;
+  padding: 25rpx;
+}
+.weui-cell::before {
+  display: none;
+}

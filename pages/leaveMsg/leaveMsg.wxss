@@ -1,0 +1,4 @@
+/* pages/leaveMsg/leaveMsg.wxss */
+.mb-15 {
+  margin-bottom: 0;
+}

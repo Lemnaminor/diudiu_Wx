@@ -1,0 +1,4 @@
+/* pages/footer/footer.wxss */
+.weui-footer__link {
+  color: #666;
+}

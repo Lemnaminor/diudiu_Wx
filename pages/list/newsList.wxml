@@ -1,0 +1,21 @@
+<template name="newsList">
+<navigator url="{{hrefUrl}}" open-type="{{openType}}" hover-class="weui-cell_active">
+  <view class='newsList-box'>
+    <image class='newsImg' src='{{newsImg}}' mode='aspectFill'></image>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title_in-text">{{title}}</view>
+      <view class="weui-media-box__desc">{{describe}}</view>
+      <view class="weui-media-box__info">
+        <view class="weui-media-box__info__meta">
+          <image class='newsIcon' src='../../images/time.png'></image>
+          {{time}}
+        </view>
+        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+          <image class='newsIcon' src='../../images/eye.png'></image>
+          {{browse}}
+        </view>
+      </view>
+    </view>
+  </view>
+  </navigator>
+</template>

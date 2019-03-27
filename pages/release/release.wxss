@@ -1,0 +1,72 @@
+/* pages/release/release.wxss */
+.textarea-wrp {
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 3%;
+}
+.textarea-wrp textarea {
+  display: block;
+  width: 100%;
+  height: 240rpx;
+  box-sizing: border-box;
+  border-bottom: 3rpx dotted #ddd;
+  padding: 3% 0;
+  font-size: 32rpx;
+}
+.releasePic {
+  background: #fff;
+  box-sizing: border-box;
+  padding: 3%;
+}
+.releasePic .weui-uploader__title {
+  color: #666;
+  font-size: 30rpx;
+}
+.releasePic .weui-uploader__info {
+  font-size: 30rpx;
+}
+.releasePic .weui-uploader__files image {
+  box-sizing: border-box;
+  border: 3rpx solid #ddd;
+}
+.releasePic .weui-uploader__hd {
+  padding-bottom: 0;
+}
+
+.releaseList-box {
+  display: block;
+  width: 100%;
+}
+.releaseList {
+  background: #fff;
+}
+.releaseList input {
+  color: #333;
+}
+.releaseList .weui-cell__bd {
+  color: #333;
+  font-size: 30rpx;
+}
+.releaseList .weui-cell__ft {
+  font-size: 30rpx;
+}
+.release-btn {
+  display: block;
+  background: #01AAED!important;
+  margin: 20rpx 0!important;
+}
+.releaseList image {
+  vertical-align: middle;
+  margin: -12rpx 0 0 0;
+}
+.mapAddress {
+  display: block;
+  width: 60%;
+}
+.mapAddress input {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

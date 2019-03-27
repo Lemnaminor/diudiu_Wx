@@ -1,0 +1,10 @@
+<!--pages/footer/footer.wxml-->
+<!--footer-->
+<template name="footer">
+  <view class="weui-footer">
+    <view class="weui-footer__links">
+      <view class="weui-footer__link">丢丢网</view>
+    </view>
+    <view class="weui-footer__text">Copyright © 2018-2019 diudiuo.com</view>
+  </view>
+</template>

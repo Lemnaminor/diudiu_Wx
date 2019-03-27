@@ -1,0 +1,45 @@
+<view class='news-box1'>
+
+  <!--tab切换-->
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+        <!--新闻列表-最新文章-->
+        <import src="../list/newsList.wxml" />
+        <block wx:for="{{newsListArr[0].newsList}}" wx:key="{{newsListArr[0].newsList}}">
+          <template is="newsList" data="{{...item}}" />
+        </block>
+
+      </view>
+
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <!--新闻列表-最热文章-->
+        <import src="../list/newsList.wxml" />
+        <block wx:for="{{newsListArr[1].newsList}}" wx:key="{{newsListArr[1].newsList}}">
+          <template is="newsList" data="{{...item}}" />
+        </block>
+      </view>
+
+    </view>
+  </view>
+
+  <!--toast-->
+  <import src="../../pages/toast/toast.wxml" />
+  <template is="toast" data="{{txt,isShow,iconClass}}"></template>
+
+  <view wx:if="{{isLoading}}" class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+
+</view>
