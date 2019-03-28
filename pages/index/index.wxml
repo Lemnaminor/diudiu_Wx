@@ -60,32 +60,41 @@
       <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
     </view>
     <view class="weui-tab__panel">
+
       <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
 
-        <!--内容列表-->
+        <!--内容列表-最新发布-->
         <view class='list-box'>
 
           <import src="../list/list.wxml" />
-          <block wx:for="{{listInfo}}" wx:key="{{listInfo}}">
+          <block wx:for="{{listInfoArr[0].listInfo}}" wx:key="{{listInfoArr[0].listInfo}}">
             <template is="list" data="{{...item}}" />
           </block>
 
         </view>
 
       </view>
+
       <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
 
-        <!--内容列表-->
+        <!--内容列表-离我最近-->
         <view class='list-box'>
 
           <import src="../list/list.wxml" />
-          <block wx:for="{{listInfo2}}" wx:key="{{listInfo2}}">
+          <block wx:for="{{listInfoArr[1].listInfo}}" wx:key="{{listInfoArr[1].listInfo}}">
             <template is="list" data="{{...item}}" />
           </block>
 
         </view>
 
       </view>
+      
     </view>
   </view>
 </view>
+
+  <!--列表底部文字加载-->
+  <view wx:if="{{isLoading}}" class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>

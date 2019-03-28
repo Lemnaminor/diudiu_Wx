@@ -1,16 +1,18 @@
 {
   "pages": [
-        "pages/news/news",
+        "pages/class/class",
+            "pages/news/news",
     "pages/index/index",
     "pages/leaveMsg/leaveMsg",
     "pages/leaveMsg/leaveMsgUser",
     "pages/comment/comment",
+
     "pages/user/user",
     "pages/sponsor/sponsor",
     "pages/copyright/copyright",
     "pages/reply/reply",
     "pages/swiper/colorSwiper",
-    "pages/class/class",
+
 
     "pages/about/about",
     "pages/release/release",

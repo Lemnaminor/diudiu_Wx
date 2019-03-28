@@ -13,3 +13,10 @@
 </view>
 
   <button wx:if="{{showMsgBtn}}" catchtap='showMsg' class='cu-btn round bg-gradual-blue shadow fr comment-btn'>留言</button>
+
+
+  <!--列表底部文字加载-->
+  <view wx:if="{{isLoading}}" class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>

@@ -9,67 +9,7 @@ Page({
     isShow: false,
 
     //--内容列表--
-    listInfo: [
-      {
-        userID: 1,
-        userHeader: "../../images/logo.png",
-        userName: "隔壁老王",
-        userTime: "2019-03-01 11:11",
-        userContent: "正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容",
-        listImg: [
-          'http://39.105.45.100/images/case1.jpg',
-          'http://39.105.45.100/images/case2.jpg',
-          'http://39.105.45.100/images/case3.jpg',
-        ],
-        userAddress: "成都市青羊区红星路一段方正东街22号院",
-        shareNum: "998",
-        messageNum: "4",
-        zanNum: "5.5万",
-        leaveList: [
-          {
-            leaveUserImg: "http://39.105.45.100/images/case3.jpg",
-            leaveUser: "普通市民",
-            leaveInfo: "我在方正东街拾到充气娃娃一个。目测已经漏气，估计是隔壁老王的。",
-            commentNum: "6",
-            floor: "第1楼",
-            leaveTime: "2019年03月10日",
-            isZan: true,
-            zanNum: "12",
-            idx: ""
-          },
-          {
-            leaveUserImg: "http://39.105.45.100/images/case2.jpg",
-            leaveUser: "普通市民2",
-            leaveInfo: "我在春熙路捡到一个老妹。。长得还丑。",
-            commentNum: "10",
-            floor: "第2楼",
-            leaveTime: "2019年03月11日",
-            isZan: false,
-            zanNum: "332"
-          },
-          {
-            leaveUserImg: "http://39.105.45.100/images/case3.jpg",
-            leaveUser: "普通市民333",
-            leaveInfo: "我在春熙路捡到一个萝莉。",
-            commentNum: "10",
-            floor: "第2楼",
-            leaveTime: "2019年03月11日",
-            isZan: false,
-            zanNum: "66"
-          },
-          {
-            leaveUserImg: "http://39.105.45.100/images/case4.jpg",
-            leaveUser: "普通市民44",
-            leaveInfo: "我在春熙路捡到一个女装大佬。",
-            commentNum: "10",
-            floor: "第2楼",
-            leaveTime: "2019年03月11日",
-            isZan: true,
-            zanNum: "22"
-          }
-        ]
-      }
-    ],
+    listInfo: [],
 
   },
   /**
@@ -93,10 +33,88 @@ Page({
       url: '/pages/leaveMsg/leaveMsgUser',
     })
   },
+  /**内容列表-图片预览**/
+  previewImage: function (e) {
+    let current = e.target.dataset.src; //点击的图片路径
+    let listImg = this.data.listInfo[0].listImg; //单个数据的图片数组赋值
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接
+      urls: listImg // 需要预览的图片http链接列表
+    })
+  },
+
+  //下拉加载请求函数
+  dropdownRequest(url, index) {
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.showNavigationBarLoading(); //在标题栏中显示加载
+    // this.loadProgress(); //进度条加载
+    var that = this;
+    wx.request({
+      url: url, // 仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'get',
+      success(res) {
+        console.log(res.data);
+        var list_num = "listInfo";
+        that.setData({
+          [list_num]: res.data
+        }),
+          wx.hideNavigationBarLoading();
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+        wx.showToast({
+          title: '已完成',
+          icon: 'success',
+          duration: 1500
+        })
+      }
+    })
+  },
+  //上拉请求函数
+  pullupRequest(url, index) {
+    var that = this;
+    that.setData({
+      isLoading: true,
+    })
+    wx.showNavigationBarLoading(); //在标题栏中显示加载
+    wx.request({
+      url: url, // 仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'get',
+      success(res) {
+
+        console.log(res.data);
+        var list_num = "listInfo[0].leaveList";
+
+        that.setData({
+          [list_num]: that.data.listInfo[0].leaveList.concat(res.data[0].leaveList)
+        })
+
+        that.setData({
+          isLoading: false,
+        }),
+          wx.hideNavigationBarLoading();
+
+      }
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    //默认请求第一页数据
+    this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/leaveMsg');
 
   },
 
@@ -133,12 +151,20 @@ Page({
    */
   onPullDownRefresh: function () {
 
+    console.log('下拉刷新');
+    console.log('down-0');
+    this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/leaveMsg');
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+
+    console.log("上拉触底");
+    console.log('pull0');
+    this.pullupRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/leaveMsg');
 
   },
 

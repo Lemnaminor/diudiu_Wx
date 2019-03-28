@@ -20,24 +20,32 @@ Page({
         newsList: [],    
       },
       {
-        newsList: [
-          // {
-          //   hrefUrl: "../detail/newsDetail",
-          //   openType: "navigate",
-          //   newsImg: "../../images/banner1.png",
-          //   title: "222锤子科技无限屏手机坚果 Pro 2S 发布，售价 1798 元起",
-          //   describe: "2018 年 8 月 20 日，锤子科技 2018 夏季新品发布会在北京凯迪拉克中心(原五棵松体育馆)举办",
-          //   source: "本网站",
-          //   time: "2019-02-26 10:10",
-          //   browse: "6515"
-          // }
-        ],
+        newsList: [],
       }
     ],
     //loading
     isLoading: false,
 
+    //进度条加载
+    // loadProgress: 0
+
   },
+
+  //进度条加载
+  // loadProgress() {
+  //   this.setData({
+  //     loadProgress: this.data.loadProgress + 3
+  //   })
+  //   if (this.data.loadProgress < 100) {
+  //     setTimeout(() => {
+  //       this.loadProgress();
+  //     }, 100)
+  //   } else {
+  //     this.setData({
+  //       loadProgress: 0
+  //     })
+  //   }
+  // },
 
   //事件处理函数
   tabClick: function(e) {
@@ -46,9 +54,21 @@ Page({
       activeIndex: e.currentTarget.id
     });
     //tab切换判断内容是否为空请求数据
-    var index = e.currentTarget.id;
-    if (this.data.newsListArr[index].newsList == ''){
-      this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b', index);
+    var index = parseInt(e.currentTarget.id);
+
+    switch (index) {
+      case 0:
+        if (this.data.newsListArr[index].newsList == '') {
+          console.log('pull0');
+          this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b', index);
+        }
+        break;
+      case 1:
+        if (this.data.newsListArr[index].newsList == '') {
+          console.log('pull1');
+          this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/newsList2', index);
+        }
+        break;
     }
 
   },
@@ -58,10 +78,10 @@ Page({
       title: '加载中',
     })
     wx.showNavigationBarLoading(); //在标题栏中显示加载
+    // this.loadProgress(); //进度条加载
     var that = this;
     wx.request({
-      // url: 'https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b', // 仅为示例，并非真实的接口地址
-      url: url,
+      url: url, // 仅为示例，并非真实的接口地址
       data: {},
       header: {
         'content-type': 'application/json' // 默认值
@@ -69,9 +89,9 @@ Page({
       method: 'get',
       success(res) {
         console.log(res.data);
-        var newsList_num = "newsListArr[" + index +"].newsList";
+        var list_num = "newsListArr[" + index +"].newsList";
         that.setData({
-          [newsList_num]: res.data
+          [list_num]: res.data
         }),
           wx.hideNavigationBarLoading();
         // 停止下拉动作
@@ -101,10 +121,10 @@ Page({
       success(res) {
 
         console.log(res.data);
-        var newsList_num = "newsListArr[" + index + "].newsList";
+        var list_num = "newsListArr[" + index + "].newsList";
 
         that.setData({
-          [newsList_num]: that.data.newsListArr[index].newsList.concat(res.data)
+          [list_num]: that.data.newsListArr[index].newsList.concat(res.data)
         })
 
         that.setData({
@@ -133,7 +153,7 @@ Page({
       }
     });
 
-    //第一次请求第一页数据
+    //默认请求第一页数据
     this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b','0');
 
   },
@@ -184,7 +204,7 @@ Page({
         break;
       case 1:
         console.log('down-1');
-        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b', index);
+        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/newsList2', index);
         break;
     }
 
@@ -207,7 +227,7 @@ Page({
         break;
       case 1:
         console.log('pull1');
-        this.pullupRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b', index);
+        this.pullupRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/newsList2', index);
         break;
     }
 

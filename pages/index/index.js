@@ -6,6 +6,7 @@ var sliderWidth = 96;
 
 Page({
   data: {
+    //data Start
     //搜索框
     colorSearchBar: {
       inputShowed: false,
@@ -58,159 +59,25 @@ Page({
         name: "招领"
       }
     ],
-    //内容筛选
+    //tab栏目切换
     tabs: ["最新发布", "离我最近"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
 
     //--内容列表--
-    listInfo: [
+    listInfoArr:[
       {
-        userID: 1,
-        userHeader: "../../images/logo.png",
-        userName: "隔壁老王",
-        userTime: "2019-03-01 11:11",
-        userContent: "正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容",
-        listImg: [
-          'http://39.105.45.100/images/case1.jpg',
-          'http://39.105.45.100/images/case2.jpg',
-          'http://39.105.45.100/images/case3.jpg',
-        ],
-        userAddress: "成都市青羊区红星路一段方正东街22号院",
-        shareNum: "998",
-        messageNum: "6541",
-        zanNum: "5.5万",
-        // leaveList: [
-        //   {
-        //     leaveUserImg: "http://39.105.45.100/images/case3.jpg",
-        //     leaveUser: "普通市民",
-        //     leaveInfo: "我在方正东街拾到充气娃娃一个。目测已经漏气，估计是隔壁老王的。",
-        //     leaveReplay: [
-        //       { info: "可能是隔壁老王丢的。！" },
-        //     ],
-        //     floor: "第1楼",
-        //     leaveTime: "2019年03月10日",
-        //     isZan: false,
-        //   },
-        //   {
-        //     leaveUserImg: "http://39.105.45.100/images/case2.jpg",
-        //     leaveUser: "普通市民2",
-        //     leaveInfo: "我在春熙路捡到一个老妹。。长得还丑。",
-        //     leaveReplay: [
-        //       {info: "是隔壁老王丢的。！"},
-        //       { info: "不对，应该是隔壁老张丢的。。" },
-        //     ],
-        //     floor: "第2楼",
-        //     leaveTime: "2019年03月11日",
-        //     dianzan: true,
-        //   }
-        // ]
+        listInfo: []
       },
       {
-        userID: 2,
-        userHeader: "../../images/logo.png",
-        userName: "张三",
-        userTime: "2019-03-01 11:11",
-        userContent: "正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容",
-        listImg: [
-          'http://39.105.45.100/images/case4.jpg',
-          'http://39.105.45.100/images/case3.jpg',
-          'http://39.105.45.100/images/case2.jpg',
-          'http://39.105.45.100/images/case1.jpg',
-        ],
-        userAddress: "成都市青羊区红星路一段方正东街22号院",
-        shareNum: "998",
-        messageNum: "6541",
-        zanNum: "5.5万",
-      },
-      {
-        userID: 3,
-        userHeader: "http://39.105.45.100/images/case4.jpg",
-        userName: "李四",
-        userTime: "2019-03-01 11:11",
-        userContent: "正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容",
-        listImg: [
-          'http://39.105.45.100/images/case4.jpg',
-          'http://39.105.45.100/images/case2.jpg',
-          'http://39.105.45.100/images/case1.jpg',
-        ],
-        userAddress: "成都市青羊区红星路一段方正东街22号院",
-        shareNum: "998",
-        messageNum: "6541",
-        zanNum: "5.5万",
+        listInfo: []
       }
-    ],
-    
+    ]
 
-    listInfo2: [
-      {
-        userID: 3,
-        userHeader: "../../images/logo.png",
-        userName: "隔壁老王22",
-        userTime: "2019-03-01 11:11",
-        userContent: "正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容",
-        listImg: [
-          'http://39.105.45.100/images/case1.jpg',
-          'http://39.105.45.100/images/case1.jpg',
-          'http://39.105.45.100/images/case2.jpg',
-          'http://39.105.45.100/images/case2.jpg',
-        ],
-        userAddress: "成都市青羊区红星路一段方正东街22号院",
-        shareNum: "998",
-        messageNum: "6541",
-        zanNum: "5.5万",
-      },
-      {
-        userID: 4,
-        userHeader: "../../images/logo.png",
-        userName: "张三22",
-        userTime: "2019-03-01 11:11",
-        userContent: "正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容正文内容",
-        listImg: [
-          'http://39.105.45.100/images/case3.jpg',
-          'http://39.105.45.100/images/case3.jpg',
-          'http://39.105.45.100/images/case4.jpg',
-          'http://39.105.45.100/images/case4.jpg',
-        ],
-        userAddress: "成都市青羊区红星路一段方正东街22号院",
-        shareNum: "998",
-        messageNum: "6541",
-        zanNum: "5.5万",
-      }
-    ],
-
+  //data End
   },
-  //searchBar
-  // showInput: function() {
-  //   this.setData({
-  //     searchBar: {
-  //       inputShowed: true
-  //     }
-  //   });
-  // },
-  // hideInput: function() {
-  //   this.setData({
-  //     searchBar: {
-  //       inputVal: "",
-  //       inputShowed: false
-  //     }
-  //   });
-  // },
-  // clearInput: function() {
-  //   this.setData({
-  //     searchBar: {
-  //       inputVal: "",
-  //     }
-  //   });
-  // },
-  // inputTyping: function(e) {
-  //   this.setData({
-  //     searchBar: {
-  //       inputVal: e.detail.value
-  //     }
-  //   });
-  // },
+
 
   //事件处理函数
   toLeaveMsg:function(){
@@ -223,29 +90,112 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+
+    //tab切换判断内容是否为空请求数据
+    var index = parseInt(e.currentTarget.id);
+    switch (index) {
+      case 0:
+        if (this.data.listInfoArr[index].listInfo == '') {
+          console.log('pull0');
+          this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_0', index);
+        }
+        break;
+      case 1:
+        if (this.data.listInfoArr[index].listInfo == '') {
+          console.log('pull1');
+          this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_1', index);
+        }
+        break;
+    }
+
   },
-  /**内容列表**/
+  /**内容列表-图片预览**/
   previewImage: function (e) {
-    let current = e.target.dataset.src;
-    let idx = e.target.dataset.id-1;
-    let listImg = this.data.listInfo[idx].listImg;
-    console.log(idx);
+    let current = e.target.dataset.src; //点击的图片路径
+    let index = this.data.activeIndex; //tab栏目ID
+    let idx = e.currentTarget.dataset.id; //栏目下单条数据ID
+    let listImg = this.data.listInfoArr[index].listInfo[idx].listImg; //单个数据的图片数组赋值
     wx.previewImage({
       current: current, // 当前显示图片的http链接
       urls: listImg // 需要预览的图片http链接列表
     })
   },
   // cardSwiper
-  cardSwiper(e) {
-    this.setData({
-      cardCur: e.detail.current
+  // cardSwiper(e) {
+  //   this.setData({
+  //     cardCur: e.detail.current
+  //   })
+  // },
+
+  //下拉加载请求函数
+  dropdownRequest(url, index) {
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.showNavigationBarLoading(); //在标题栏中显示加载
+    // this.loadProgress(); //进度条加载
+    var that = this;
+    wx.request({
+      url: url, // 仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'get',
+      success(res) {
+        console.log(res.data);
+        var list_num = "listInfoArr[" + index + "].listInfo";
+        that.setData({
+          [list_num]: res.data
+        }),
+          wx.hideNavigationBarLoading();
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+        wx.showToast({
+          title: '已完成',
+          icon: 'success',
+          duration: 1500
+        })
+      }
     })
   },
+  //上拉请求函数
+  pullupRequest(url, index) {
+    var that = this;
+    that.setData({
+      isLoading: true,
+    })
+    wx.showNavigationBarLoading(); //在标题栏中显示加载
+    wx.request({
+      url: url, // 仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'get',
+      success(res) {
 
+        console.log(res.data);
+        var list_num = "listInfoArr[" + index + "].listInfo";
+
+        that.setData({
+          [list_num]: that.data.listInfoArr[index].listInfo.concat(res.data)
+        })
+
+        that.setData({
+          isLoading: false,
+        }),
+          wx.hideNavigationBarLoading();
+
+      }
+    })
+
+  },
   
   onLoad: function() {
 
-
+    //默认请求第一页数据
+    this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_0', '0');
 
     /**内容筛选**/
     var that = this;
@@ -294,5 +244,50 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+    console.log('下拉刷新');
+    var index = parseInt(this.data.activeIndex);
+    console.log(index);
+    switch (index) {
+      case 0:
+        console.log('down-0');
+        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_0', index);
+        break;
+      case 1:
+        console.log('down-1');
+        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_1', index);
+        break;
+    }
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+    console.log("上拉触底");
+    var index = parseInt(this.data.activeIndex);
+    console.log(index);
+    switch (index) {
+      case 0:
+        console.log('pull0');
+        this.pullupRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_0', index);
+        break;
+      case 1:
+        console.log('pull1');
+        this.pullupRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_1', index);
+        break;
+    }
+
+  },
+
+
+
 })
