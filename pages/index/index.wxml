@@ -67,7 +67,7 @@
         <view class='list-box'>
 
           <import src="../list/list.wxml" />
-          <block wx:for="{{listInfoArr[0].listInfo}}" wx:key="{{listInfoArr[0].listInfo}}">
+          <block wx:for="{{listInfoArr[0].listInfo}}" wx:key="{{listInfoArr[0].listInfo}}" catchtap='showModal'>
             <template is="list" data="{{...item}}" />
           </block>
 
@@ -81,7 +81,7 @@
         <view class='list-box'>
 
           <import src="../list/list.wxml" />
-          <block wx:for="{{listInfoArr[1].listInfo}}" wx:key="{{listInfoArr[1].listInfo}}">
+          <block wx:for="{{listInfoArr[1].listInfo}}" wx:key="{{listInfoArr[1].listInfo}}" catchtap='showModal'>
             <template is="list" data="{{...item}}" />
           </block>
 
@@ -97,4 +97,16 @@
   <view wx:if="{{isLoading}}" class="weui-loadmore">
     <view class="weui-loading"></view>
     <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+
+  <!--浮动导航-->
+  <import src="../fixedNav/fixedNav.wxml" />
+  <view class='item' bindtap='goTop'>
+    <template is="fixedNav"/>
+  </view>
+
+  <!-- 联系电话弹出层 -->
+  <import src="../modal/modal.wxml" />
+  <view catchtap='showModal'>
+    <template is="modal" data="{{modalName,telPhone}}"/>
   </view>

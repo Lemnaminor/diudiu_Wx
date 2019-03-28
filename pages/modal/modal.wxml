@@ -1,0 +1,24 @@
+<!--pages/modal/modal.wxml-->
+<template name="modal">
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class='content'>是否联系Ta？</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class='padding-xl'>
+      {{telPhone}}
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class='action'>
+        <button class='cu-btn line-green text-green' catchtap='hideModal'>取消</button>
+        <button class='cu-btn bg-green margin-left' catchtap='hideModal'>确定</button>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+</template>

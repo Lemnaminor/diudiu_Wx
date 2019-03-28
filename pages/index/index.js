@@ -1,4 +1,6 @@
 //index.js
+//app.js
+var common = require("../../utils/util.js");
 
 //获取应用实例
 const app = getApp()
@@ -37,6 +39,11 @@ Page({
       '有联系失主捡到东西要收费的请注意真实性！',
       '风险提示：信息又网友发布，不代表本平台立场！',
     ],
+
+    // 联系电话弹出层
+    modalName: '',
+    telPhone: '',
+
     //导航
     navbar: [{
         imgUrl: "../../images/release.png",
@@ -80,9 +87,21 @@ Page({
 
 
   //事件处理函数
-  toLeaveMsg:function(){
+  toLeaveMsg(){
     wx.navigateTo({
       url: '/pages/leaveMsg/leaveMsg',
+    })
+  },
+  showModal(e) {
+    console.log(e.currentTarget.dataset.telphone);
+    this.setData({
+      modalName: e.currentTarget.dataset.target,
+      telPhone: e.currentTarget.dataset.telphone
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
     })
   },
   tabClick: function (e) {
@@ -120,12 +139,7 @@ Page({
       urls: listImg // 需要预览的图片http链接列表
     })
   },
-  // cardSwiper
-  // cardSwiper(e) {
-  //   this.setData({
-  //     cardCur: e.detail.current
-  //   })
-  // },
+
 
   //下拉加载请求函数
   dropdownRequest(url, index) {
@@ -190,6 +204,12 @@ Page({
       }
     })
 
+  },
+
+  /** 浮动小球返回顶部 **/
+  goTop: function () {
+    var that = this;
+    common.goTop();
   },
   
   onLoad: function() {

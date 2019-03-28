@@ -1,0 +1,7 @@
+<template name="fixedNav">
+  <view class='fixedNav-box'>
+    <view class="fixedNav-list" hover-class="weui-cell_active" bindtap='goTop'>
+      <image src="../../images/home.png"></image>
+    </view>
+  </view>
+</template>

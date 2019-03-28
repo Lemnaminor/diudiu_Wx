@@ -1,6 +1,7 @@
 @import "weui.wxss";
 @import "colorui.wxss";
 @import "icon.wxss";
+@import "pages/fixedNav/fixedNav.wxss";
 @import "pages/searchBar/searchBar.wxss";
 @import "pages/footer/footer.wxss";
 @import "pages/list/list.wxss";

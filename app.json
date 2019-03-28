@@ -1,8 +1,10 @@
 {
   "pages": [
+    
+        "pages/index/index",
         "pages/class/class",
             "pages/news/news",
-    "pages/index/index",
+
     "pages/leaveMsg/leaveMsg",
     "pages/leaveMsg/leaveMsgUser",
     "pages/comment/comment",
@@ -13,7 +15,7 @@
     "pages/reply/reply",
     "pages/swiper/colorSwiper",
 
-
+    "pages/modal/modal",
     "pages/about/about",
     "pages/release/release",
     "pages/detail/newsDetail",
@@ -26,6 +28,7 @@
     "pages/footer/footer",
     "pages/toast/toast",
     "pages/bar/bar",
+    "pages/fixedNav/fixedNav",
     "pages/BF/BF",
     "pages/logs/logs"
   ],

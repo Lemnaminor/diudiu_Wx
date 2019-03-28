@@ -10,7 +10,7 @@
         <view class='userName'>{{userName}}</view>
         <view class='userTime'>{{userTime}}</view>
       </view>
-      <view class='contact-btn'>联系Ta</view>
+      <view class='contact-btn' catchtap="showModal" data-target="DialogModal1" data-telPhone="{{telPhone}}">联系Ta</view>
     </view>
 
     <view class='list-content'>
@@ -84,3 +84,4 @@
   </view>
 
 </template>
+
