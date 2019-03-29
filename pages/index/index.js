@@ -103,6 +103,9 @@ Page({
     this.setData({
       modalName: null
     })
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.telphone
+    })
   },
   tabClick: function (e) {
     this.setData({
