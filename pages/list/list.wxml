@@ -16,7 +16,7 @@
     <view class='list-content'>
       <view class='userContent'>{{userContent}}</view>
       <view class='userPic clearfix'>
-        <view wx:for="{{listImg}}" wx:key="{{listImg}}" wx:for-item="image" class="previewimg">
+        <view wx:for="{{listImg}}" wx:key="{{listImg}}" wx:for-item="image" class="previewimg {{listImg.length == 1 ? 'previewimg_1' : 'previewimg'}}">
           <image src="{{image}}" data-id="{{userID}}" data-src="{{image}}" bindtap="previewImage" mode='aspectFill'></image>
         </view>
       </view>
@@ -29,8 +29,11 @@
     <view class='list-share lineT'>
       <view class='weui-flex'>
         <view class='weui-flex__item'>
-          <image src='../../images/share.png'></image>
-          <text>{{shareNum}}</text>
+          <button id='shareButton' open-type='share' data-desc='{{userContent}}' data-imageurl='{{listImg[0]}}' data-id='{{userID}}'></button>
+          <label for='shareButton'>
+            <image src='../../images/share.png'></image>
+            <text>{{shareNum}}</text>
+          </label>
         </view>
         <view class='weui-flex__item  weui-media-box__info__meta_extra' catchtap='toLeaveMsg'>
           <image src='../../images/message.png'></image>
@@ -84,4 +87,3 @@
   </view>
 
 </template>
-

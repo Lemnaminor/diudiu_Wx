@@ -1,4 +1,8 @@
-// pages/class/class.js
+var common = require("../../utils/util.js");
+
+//获取应用实例
+const app = getApp()
+
 Page({
 
   /**
@@ -37,7 +41,35 @@ Page({
   /**
    * 事件操作函数
    */
+  /** 浮动小球返回顶部 **/
+  goTop: function () {
+    var that = this;
+    common.goTop();
+  },
 
+  toLeaveMsg() {
+    console.log('toLeaveMsg');
+    wx.navigateTo({
+      url: '/pages/leaveMsg/leaveMsg',
+    })
+  },
+  // 联系弹出层
+  showModal(e) {
+    console.log(e.currentTarget.dataset.telphone);
+    this.setData({
+      modalName: e.currentTarget.dataset.target,
+      telPhone: e.currentTarget.dataset.telphone
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.telphone
+    })
+  },
+  // tab切换
   tabSelect(e) {
     console.log(e);
     this.setData({
@@ -59,6 +91,12 @@ Page({
         if (this.data.listInfoArr[index].listInfo == '') {
           console.log('pull1');
           this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_1', index);
+        }
+        break;
+      case 2:
+        if (this.data.listInfoArr[index].listInfo == '') {
+          console.log('pull2');
+          this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_2', index);
         }
         break;
     }
@@ -148,8 +186,44 @@ Page({
    */
   onLoad: function(options) {
 
-    //默认请求第一页数据
-    this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_0', 0);
+    //获取首页全局变量栏目id值
+    var navId = app.globalData.navId;
+    
+    console.log('ok');
+    console.log(navId);
+     
+    this.setData({
+      TabCur: navId,
+      scrollLeft: (navId - 1) * 60
+    })
+
+
+    //第一次进入默认请求对应栏目数据
+    var index = app.globalData.navId;
+    console.log(index);
+    switch (index) {
+      case 0:
+        if (this.data.listInfoArr[index].listInfo == '') {
+          console.log('pull0');
+          this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_0', index);
+        }
+        break;
+      case 1:
+        if (this.data.listInfoArr[index].listInfo == '') {
+          console.log('pull1');
+          this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_1', index);
+        }
+        break;
+      case 2:
+        if (this.data.listInfoArr[index].listInfo == '') {
+          console.log('pull2');
+          this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_2', index);
+        }
+        break;
+    }
+
+    //首页全局变量栏目ID重置
+    app.globalData.navId = 0
 
   },
 
@@ -192,11 +266,15 @@ Page({
     switch (index) {
       case 0:
         console.log('down-0');
-        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_0', '0');
+        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_0', index);
         break;
       case 1:
         console.log('down-1');
-        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_1', '1');
+        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_1', index);
+        break;
+      case 2:
+        console.log('down-2');
+        this.dropdownRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_2', index);
         break;
     }
 
@@ -219,6 +297,10 @@ Page({
         console.log('pull1');
         this.pullupRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_1', index);
         break;
+      case 2:
+        console.log('pull2');
+        this.pullupRequest('https://www.easy-mock.com/mock/5c7f2260e26f262296f92a1b/listInfo_2', index);
+        break;
     }
 
   },
@@ -226,7 +308,32 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function (e) {
+    console.log(e);
 
+    if (e.from === 'button') {
+      // 页面内转发
+      console.log("页面内转发");
+      var image = e.target.dataset.imageurl;
+      if (image == undefined) {
+        image = 'http://39.105.45.100/images/case3.jpg';//没有上传图片的替换图片。
+      }
+      return {
+        title: e.target.dataset.desc,
+        // desc: e.target.dataset.desc,
+        path: '/page/leaveMsg?id=' + e.target.dataset.id,
+        imageUrl: image,
+      }
+    } else {
+      // 右上角转发
+      console.log("右上角转发");
+      return {
+        title: '丢丢网-找得回来算我输。',
+        // desc: '分享页面的内容222',
+        path: '/page/leaveMsg?id=123',
+        imageUrl: 'http://39.105.45.100/images/case2.jpg',
+      }
+    }
   }
+
 })

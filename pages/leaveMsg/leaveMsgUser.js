@@ -15,6 +15,23 @@ Page({
   /**
    * 事件处理函数
    */
+  // 联系弹出层
+  showModal(e) {
+    console.log(e.currentTarget.dataset.telphone);
+    this.setData({
+      modalName: e.currentTarget.dataset.target,
+      telPhone: e.currentTarget.dataset.telphone
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.telphone
+    })
+  },
+
   showMsg: function (e) {
     this.setData({
       isShow: true,
@@ -29,6 +46,20 @@ Page({
     console.log(e);
   },
 
+  // 导航点击显示留言
+  toLeaveMsg() {
+    this.setData({
+      isShow: true,
+    });
+    
+  },
+  //隐藏留言弹出层
+  commentReset() {
+    this.setData({
+      isShow: false,
+    })
+  },
+  
   //下拉加载请求函数
   dropdownRequest(url, index) {
     wx.showLoading({
@@ -157,7 +188,31 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (e) {
+    console.log(e);
 
+    if (e.from === 'button') {
+      // 页面内转发
+      console.log("页面内转发");
+      var image = e.target.dataset.imageurl;
+      if (image == undefined) {
+        image = 'http://39.105.45.100/images/case3.jpg';//没有上传图片的替换图片。
+      }
+      return {
+        title: e.target.dataset.desc,
+        // desc: e.target.dataset.desc,
+        path: '/page/leaveMsg?id=' + e.target.dataset.id,
+        imageUrl: image,
+      }
+    } else {
+      // 右上角转发
+      console.log("右上角转发");
+      return {
+        title: '丢丢网-找得回来算我输。',
+        // desc: '分享页面的内容222',
+        path: '/page/leaveMsg?id=123',
+        imageUrl: 'http://39.105.45.100/images/case2.jpg',
+      }
+    }
   }
 })

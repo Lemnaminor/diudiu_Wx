@@ -50,3 +50,9 @@
   <view class='load-progress-bar bg-green' style="transform: translate3d(-{{100-loadProgress}}%, 0px, 0px);"></view>
   <view class='load-progress-spinner text-green'></view>
 </view> -->
+
+  <!--浮动导航-->
+  <import src="../fixedNav/fixedNav.wxml" />
+  <view class='item' bindtap='goTop'>
+    <template is="fixedNav"/>
+  </view>

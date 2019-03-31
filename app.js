@@ -40,6 +40,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    mapAddress: ''
+    mapAddress: '',
+    navId: 0,
   }
 })

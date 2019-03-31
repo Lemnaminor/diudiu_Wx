@@ -1,20 +1,17 @@
 {
   "pages": [
-    
-        "pages/index/index",
-        "pages/class/class",
-            "pages/news/news",
-
+    "pages/index/index",
+    "pages/class/class",
+    "pages/news/news",
+    "pages/comment/comment",
     "pages/leaveMsg/leaveMsg",
     "pages/leaveMsg/leaveMsgUser",
-    "pages/comment/comment",
-
     "pages/user/user",
     "pages/sponsor/sponsor",
     "pages/copyright/copyright",
-    "pages/reply/reply",
+    "pages/list/list",
     "pages/swiper/colorSwiper",
-
+    "pages/reply/reply",
     "pages/modal/modal",
     "pages/about/about",
     "pages/release/release",
@@ -22,7 +19,6 @@
     "pages/searchBar/searchBar",
     "pages/searchBar/colorSearchBar",
     "pages/map/map",
-    "pages/list/list",
     "pages/list/newsList",
     "pages/list/userNavList",
     "pages/footer/footer",

@@ -7,5 +7,6 @@
   </view>
   <textarea placeholder='请填写您的评论^-^...' value='{{commentCont}}'></textarea>
   <button bindtap='commentSubmit' class='cu-btn round bg-gradual-blue shadow fr'>提交</button>
+  <button bindtap='commentReset' class='cu-btn round bg-grey shadow fr margin-right-sm'>取消</button>
 </view>
 </template>

@@ -2,13 +2,13 @@
 
 <view class='class-box' bindtap='bodyClick'>
   <import src="../list/list.wxml" />
-  <block wx:for="{{listInfo}}" wx:key="{{listInfo}}">
+  <block wx:for="{{listInfo}}" wx:key="{{listInfo}}" catchtap='showModal'>
     <template is="list" data="{{...item}}" />
   </block>
 </view>
 
 <import src="../comment/comment.wxml" />
-<view class='comment-bottom' wx:if="{{isShow}}" catchtap='showMsg,zanChange'>
+<view class='comment-bottom' wx:if="{{isShow}}">
   <template is="comment" data="{{...item}}" />
 </view>
 
@@ -19,4 +19,10 @@
   <view wx:if="{{isLoading}}" class="weui-loadmore">
     <view class="weui-loading"></view>
     <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+
+  <!-- 联系电话弹出层 -->
+  <import src="../modal/modal.wxml" />
+  <view catchtap='showModal'>
+    <template is="modal" data="{{modalName,telPhone}}"/>
   </view>

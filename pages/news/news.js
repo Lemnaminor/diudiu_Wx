@@ -1,4 +1,7 @@
-// pages/news/news.js
+var common = require("../../utils/util.js");
+
+//获取应用实例
+const app = getApp()
 
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 
@@ -48,6 +51,13 @@ Page({
   // },
 
   //事件处理函数
+  
+  /** 浮动小球返回顶部 **/
+  goTop: function () {
+    var that = this;
+    common.goTop();
+  },
+
   tabClick: function(e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,

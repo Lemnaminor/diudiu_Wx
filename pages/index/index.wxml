@@ -37,7 +37,7 @@
   <view class="weui-flex">
     <block wx:for="{{navbar}}" wx:key="{{navbar}}">
       <view class="weui-flex__item">
-        <view bindtap='goShop' class="navbar-list1" hover-class="navigator-hover">
+        <view bindtap='toShop' class="navbar-list1" hover-class="navigator-hover" data-id="{{item.id}}">
           <view>
             <image src="{{item.imgUrl}}"></image>
           </view>

@@ -46,22 +46,27 @@ Page({
 
     //导航
     navbar: [{
+        id: 0,
         imgUrl: "../../images/release.png",
         name: "寻物"
       },
       {
+        id: 1,
         imgUrl: "../../images/release.png",
         name: "寻人"
       },
       {
+        id: 2,
         imgUrl: "../../images/release.png",
         name: "寻宠"
       },
       {
+        id: 3,
         imgUrl: "../../images/release.png",
         name: "赏金"
       },
       {
+        id: 4,
         imgUrl: "../../images/release.png",
         name: "招领"
       }
@@ -72,7 +77,7 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
 
-    //--内容列表--
+    //内容列表
     listInfoArr:[
       {
         listInfo: []
@@ -85,13 +90,26 @@ Page({
   //data End
   },
 
-
-  //事件处理函数
+  /**
+   * 事件处理函数
+   */
+  //页面跳转函数
   toLeaveMsg(){
     wx.navigateTo({
       url: '/pages/leaveMsg/leaveMsg',
     })
   },
+  toShop(e){
+    var index = e.currentTarget.dataset.id;
+    app.globalData.navId = index;//设置全局变量(app已经定义 var app=getApp())
+    console.log(index);
+    console.log(app.globalData.navId);
+    wx.switchTab({
+      url: '/pages/class/class',
+    })
+  },
+
+  // 联系弹出层
   showModal(e) {
     console.log(e.currentTarget.dataset.telphone);
     this.setData({
@@ -107,6 +125,7 @@ Page({
       phoneNumber: e.currentTarget.dataset.telphone
     })
   },
+
   tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
@@ -311,6 +330,34 @@ Page({
 
   },
 
-
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (e) {
+    console.log(e);
+    if (e.from === 'button') {
+      // 页面内转发
+      console.log("页面内转发");
+      var image = e.target.dataset.imageurl;
+      if (image == undefined) {
+        image = 'http://39.105.45.100/images/case3.jpg';//没有上传图片的替换图片。
+      }
+      return {
+        title: e.target.dataset.desc,
+        // desc: e.target.dataset.desc,
+        path: '/page/leaveMsg?id=' + e.target.dataset.id,
+        imageUrl: image,
+      }
+    } else {
+      // 右上角转发
+      console.log("右上角转发");
+      return {
+        title: '丢丢网-找得回来算我输。',
+        // desc: '分享页面的内容222',
+        path: '/page/leaveMsg?id=123',
+        imageUrl: 'http://39.105.45.100/images/case2.jpg',
+      }
+    }
+  }
 
 })
