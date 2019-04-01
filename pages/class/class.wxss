@@ -1,1 +1,13 @@
 /* pages/class/class.wxss */
+page {
+  padding-top: 90rpx;
+}
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  box-sizing: border-box;
+  box-shadow: 0 2rpx 2rpx 2rpx rgba(0,0,0,.1);
+}
