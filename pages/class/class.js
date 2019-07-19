@@ -15,12 +15,12 @@ Page({
     className: [
       { name: "最新" },
       { name: "附近" },
-      { name: "榜单" },
+      { name: "加急" },
+      { name: "招领" },
       { name: "寻物" },
       { name: "寻人" },
       { name: "寻宠" },
       { name: "赏金" },
-      { name: "招领" },
     ],
 
     //--内容列表--

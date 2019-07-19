@@ -8,42 +8,52 @@
 @import "pages/comment/comment.wxss";
 
 /**app.wxss**/
+
 page {
   background-color: #eee;
 }
 
 /**text-color**/
+
 .text-333 {
   color: #333;
 }
+
 .text-666 {
   color: #666;
 }
+
 .text-999 {
   color: #999;
 }
 
 /**margin**/
+
 .mb-15 {
   margin-bottom: 15rpx;
 }
 
 /**line**/
+
 .lineT {
   border-top: 2rpx solid #e6e6e6;
 }
+
 .lineB {
   border-bottom: 2rpx solid #e6e6e6;
 }
+
 .lineTB {
   border-top: 2rpx solid #e6e6e6;
   border-bottom: 2rpx solid #e6e6e6;
 }
 
 /**clearfix**/
+
 .clearfix {
   height: 1%;
 }
+
 .clearfix:after {
   clear: both;
   content: '\20';
@@ -54,14 +64,16 @@ page {
 }
 
 /**weui-cell2**/
+
 .weui-cell2 {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding:10px 15px;
+  padding: 10px 15px;
 }
 
 /**newsIcon**/
+
 .newsIcon {
   display: inline-block;
   width: 30rpx;
@@ -71,10 +83,48 @@ page {
 }
 
 /**text-skyblue**/
+
 .text-skyblue {
   color: #23beff;
 }
+
 .bg-skyblue {
   color: #fff;
   background: #23beff;
+}
+
+/** tag **/
+
+.bg-tag-blue {
+  color: #1890ff;
+  background: #e6f7ff;
+  border: 1px solid #91d5ff;
+}
+
+.ant-tag-orange {
+  color: #fa8c16;
+  background: #fff7e6;
+  border: 1px solid #ffd591;
+}
+
+.ant-tag-purple {
+  color: #722ed1;
+  background: #f9f0ff;
+  border: 1px solid #d3adf7;
+}
+
+.ant-tag-cyan {
+  color: #13c2c2;
+  background: #e6fffb;
+  border: 1px solid #87e8de;
+}
+
+.bg-oranges {
+  color: #fff;
+  background-color: rgb(255, 85, 0);
+}
+
+.bg-reds {
+  color: #fff;
+  background-color: rgb(255, 0, 0);
 }

@@ -1,20 +1,26 @@
 <template name="list">
-  
-  <view class='contList clearfix mb-15 lineTB'>
 
-    <view class='list-header'>
-      <view class='userHeader'>
-        <image src='{{userHeader}}' mode='aspectFill'></image>
+  <view class='contList clearfix mb-15 lineTB bg-white padding-top padding-lr'>
+
+    <view class="flex align-center">
+      <view class="cu-avatar round lg margin-right-sm" style="background-image:url({{userHeader}});"></view>
+      <view class='content flex-sub'>
+        <view>{{userName}}</view>
+        <view class='text-gray text-sm'>{{userTime}}</view>
       </view>
-      <view class='list-cont1'>
-        <view class='userName'>{{userName}}</view>
-        <view class='userTime'>{{userTime}}</view>
+      <view>
+        <view class='cu-tag radius bg-reds'>加急</view>
       </view>
-      <view class='contact-btn' catchtap="showModal" data-target="DialogModal1" data-telPhone="{{telPhone}}">联系Ta</view>
+    </view>
+
+    <view class='margin-top-sm'>
+      <view class='cu-tag radius bg-oranges'>赏金:1000</view>
+      <view class='cu-tag radius bg-tag-blue'>寻物启事</view>
+      <view class='cu-tag radius bg-tag-blue'>卡包</view>
     </view>
 
     <view class='list-content'>
-      <view class='userContent'>{{userContent}}</view>
+      <view class='userContent padding-tb-xs'>{{userContent}}</view>
       <view class='userPic clearfix'>
         <view wx:for="{{listImg}}" wx:key="{{listImg}}" wx:for-item="image" class="previewimg {{listImg.length == 1 ? 'previewimg_1' : 'previewimg'}}">
           <image src="{{image}}" data-id="{{userID}}" data-src="{{image}}" bindtap="previewImage" mode='aspectFill'></image>
@@ -28,20 +34,13 @@
 
     <view class='list-share lineT'>
       <view class='weui-flex'>
-        <view class='weui-flex__item'>
-          <button id='shareButton' open-type='share' data-desc='{{userContent}}' data-imageurl='{{listImg[0]}}' data-id='{{userID}}'></button>
-          <label for='shareButton'>
-            <image src='../../images/share.png'></image>
-            <text>{{shareNum}}</text>
-          </label>
-        </view>
-        <view class='weui-flex__item  weui-media-box__info__meta_extra' catchtap='toLeaveMsg'>
+        <view class='weui-flex__item' catchtap='toLeaveMsg'>
           <image src='../../images/message.png'></image>
           <text>{{messageNum}}</text>
         </view>
-        <view class='weui-flex__item  weui-media-box__info__meta_extra'>
-          <image src='../../images/zan.png'></image>
-          <text>{{zanNum}}</text>
+        <view class='weui-flex__item  weui-media-box__info__meta_extra' catchtap='toLeaveMsg'>
+          <image src='../../images/comment.png'></image>
+          <text>详情</text>
         </view>
       </view>
     </view>
@@ -60,7 +59,7 @@
                 <view>我：</view>
                 <view class='flex-sub'>{{item.info}}</view>
               </view> -->
-               <view class="flex">
+              <view class="flex">
                 <view catchtap='toMsgUser'>共{{item.commentNum}}条回复 ></view>
               </view>
             </view>

@@ -72,7 +72,7 @@ Page({
       }
     ],
     //tab栏目切换
-    tabs: ["最新发布", "离我最近"],
+    tabs: ["最新发布", "加急置顶"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,

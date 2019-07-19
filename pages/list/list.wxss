@@ -4,78 +4,10 @@
   display: block;
   width: 100%;
 }
-.contList {
-  display: block;
-  width: 100%;
-  background: #fff;
-  box-sizing: border-box;
-  padding: 0 3%;
-  
-  padding-top: 30rpx;
+.cu-tag {
+  padding:0rpx 13rpx;
 }
-.list-header {
-  position: relative;
-  width: 100%;
-}
-.userHeader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100rpx;
-  height: 100rpx;
-  background: #fff;
-  box-sizing: border-box;
-  border: 3rpx solid #ddd;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.userHeader image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-.list-cont1 {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10rpx 100rpx 0 120rpx;
-}
-.contact-btn {
-  position: absolute;
-  top: 15rpx;
-  right: 0;
-  height: 60rpx;
-  line-height: 60rpx;
-  color: #23beff;
-  border: 3rpx solid #23beff;
-  border-radius: 10rpx;
-  padding: 0 20rpx;
-  font-size: 28rpx;
-}
-.userName {
-  display: block;
-  width: 100%;
-  color: #111;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 30rpx;
-}
-.userTime {
-  display: block;
-  width: 100%;
-  color: #999;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 26rpx;
-}
-.userContent {
-  width: 100%;
-  color: #333;
-  padding: 25rpx 0 20rpx;
-  font-size: 28rpx;
-}
+
 .userPic {
   display: flex;
   width: 100%;
